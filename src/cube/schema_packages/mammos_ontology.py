@@ -104,6 +104,11 @@ class SpontaneousMagneticPolarisation(ArchiveSection):
   m_def = Section(a_eln=dict(properties=dict(order=['SpontaneousMagneticPolarisation'])))
   SpontaneousMagneticPolarisation = Quantity(type=np.float64, a_eln={'component': 'NumberEditQuantity', 'defaultDisplayUnit': 'T'}, unit='kg/(A.s**2)')
 
+class MaximumEnergyProduct(ArchiveSection):
+  m_def = Section(a_eln=dict(properties=dict(order=['MaximumEnergyProduct'])))
+  MaximumEnergyProduct = Quantity(type=np.float64, a_eln={'component': 'NumberEditQuantity', 'defaultDisplayUnit': 'kJ/m**3'}, unit='kg/(m.s**2)')
+
+
 class LatticeConstantA(ArchiveSection):
   """
   IRI: https://w3id.org/emmo/domain/magnetic_material#EMMO_ef314f95-f3b5-5cb7-ac56-7bfc54f0d955

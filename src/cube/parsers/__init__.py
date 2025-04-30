@@ -31,3 +31,17 @@ uuparser_entry_point = UUParserEntryPoint(
   description='New parser entry point configuration.',
   mainfile_name_re='.*cif',
 )
+
+
+class IFWParserEntryPoint(ParserEntryPoint):
+  def load(self):
+    from cube.parsers.ifwparser import IFWParser
+
+    return IFWParser(**self.dict())
+
+
+ifwparser_entry_point = IFWParserEntryPoint(
+  name='IFWParser',
+  description='New parser entry point configuration.',
+  mainfile_name_re='.*json',
+)

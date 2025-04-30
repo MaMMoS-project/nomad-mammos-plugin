@@ -52,3 +52,17 @@ uu = UUEntryPoint(
     name='uu',
     description='Schema package for UU data.',
 )
+
+
+class IFWEntryPoint(SchemaPackageEntryPoint):
+
+    def load(self):
+        from cube.schema_packages.ifw_schema import m_package
+
+        return m_package
+
+
+ifw = IFWEntryPoint(
+    name='ifw',
+    description='Schema package for IFW data.',
+)

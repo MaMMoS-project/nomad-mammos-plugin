@@ -61,11 +61,13 @@ class IFWData(EntryData, ArchiveSection):
 
     if self.M_of_H_file is not None:
         print(f'Normalizing IFW data: {self.M_of_H_file}')
-        # print(archive.m_context.raw_file(self.M_of_H_file))
+        #print(f'archive.m_context.raw_file(self.M_of_H_file):  {archive.m_context.raw_file(self.M_of_H_file)}')
         with archive.m_context.raw_file(self.M_of_H_file) as file:
+            print(f'file: {file}')  
+            print(f'file.read(): {file.read()}')  
             # content = json.load(file)
             content = json.loads(file.read())
-
-        self.BHmax = MaximumEnergyProduct
+            
+        self.BHmax = MaximumEnergyProduct()
         self.BHmax.MaximumEnergyProduct = \
-            ureg.Quantity(float(content['BHmax in kJ/m^3'][0], 'kJ/m^3'))
+            ureg.Quantity(float(content['BHmax in kJ/m^3'][0]), 'kJ/m^3')

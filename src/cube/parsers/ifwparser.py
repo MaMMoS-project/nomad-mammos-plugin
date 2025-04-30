@@ -66,6 +66,7 @@ class IFWParser(MatchingParser):
       
       
       MoH = f"{archiveBaseDir}/VSM_M(H).json"
+      
       print(f'MoH {MoH}')
 
       entry = IFWData(M_of_H_file=MoH)

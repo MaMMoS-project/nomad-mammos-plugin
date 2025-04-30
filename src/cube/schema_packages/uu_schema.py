@@ -14,7 +14,7 @@ from nomad.metainfo import (
 )
 from nomad.units import ureg
 
-from .mammos_ontology import MagnetocrystallineAnisotropyConstantK1
+from .mammos_ontology import MagnetocrystallineAnisotropyConstantK1, SpontaneousMagneticPolarisation
 
 if TYPE_CHECKING:
   from nomad.datamodel.datamodel import (
@@ -156,6 +156,10 @@ class UUData(EntryData, ArchiveSection):
     section_def=MagnetocrystallineAnisotropyConstantK1,
     repeats = False,
   )
+  Js = SubSection(
+    section_def=SpontaneousMagneticPolarisation,
+    repeats = False,
+  )
 
   groundState = SubSection(
     section_def=GroundState,
@@ -188,9 +192,13 @@ class UUData(EntryData, ArchiveSection):
       tot_moments_D = lastThingy(lines, 'Total moment [J=L+S] (mu_B):')
       dir_of_JD = lastThingy(lines, 'Direction of J (Cartesian):')
 
-      magnetization_in_T, ucvA = compute_magnetization(tot_moments_D, dir_of_JD, 
+      polarisation_in_T, ucvA = compute_magnetization(tot_moments_D, dir_of_JD, 
                                                        lines)
-      #print(f'Magnetization Ms: {magnetization_in_T} T')
+      # should be Polarization
+      print(f'Js : {polarisation_in_T} T')
+
+
+
 
       K1_in_JPerCubibm = self.compute_anisotropy_constant(ucvA, 
                                                           self.groundState.energies)
@@ -198,11 +206,20 @@ class UUData(EntryData, ArchiveSection):
             f'{K1_in_JPerCubibm} J/m\N{SUPERSCRIPT THREE}')
       logger.info('Anisotropy constant (max of all): ' +
                   f'{K1_in_JPerCubibm} J/m\N{SUPERSCRIPT THREE}')
+      print('Polarization: ' +
+            f'{polarisation_in_T} T')
+      logger.info('Polarization: ' +
+                  f'{polarisation_in_T} T')
       try:
         self.k1 = MagnetocrystallineAnisotropyConstantK1()
         self.k1.MagnetocrystallineAnisotropyConstantK1 = \
             ureg.Quantity(float(K1_in_JPerCubibm), 'J/m**3')
         print(f'K1 set to {self.k1.MagnetocrystallineAnisotropyConstantK1}')
+
+        self.Js = SpontaneousMagneticPolarisation()
+        self.Js.SpontaneousMagneticPolarisation = \
+            ureg.Quantity(float(polarisation_in_T), 'T')
+        print(f'Js set to {self.Js.SpontaneousMagneticPolarisation}')
       except Exception as e:
         print(e)
         logger.error(f'Exception {e}')

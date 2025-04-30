@@ -7,7 +7,7 @@ class NewParserEntryPoint(ParserEntryPoint):
 
     def load(self):
         # from cube.parsers.cubeparser import CubeParser
-        from cube.parsers.cubeparser import CubeParser
+        from mammos.parsers.cubeparser import CubeParser
 
         return CubeParser(**self.dict())
 
@@ -21,7 +21,7 @@ parser_entry_point = NewParserEntryPoint(
 
 class UUParserEntryPoint(ParserEntryPoint):
   def load(self):
-    from cube.parsers.uuparser import UUParser
+    from mammos.parsers.uuparser import UUParser
 
     return UUParser(**self.dict())
 

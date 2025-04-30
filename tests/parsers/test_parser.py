@@ -2,8 +2,8 @@ import logging
 
 from nomad.datamodel import EntryArchive
 
-from cube.parsers.cubeparser import CubeParser
-from cube.schema_packages.cube import Cube
+from mammos.parsers.cubeparser import CubeParser
+from mammos.schema_packages.cube import Cube
 
 
 def test_parse_file():

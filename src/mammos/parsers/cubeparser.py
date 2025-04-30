@@ -3,7 +3,7 @@ import os
 from nomad.datamodel import EntryArchive
 from nomad.parsing import MatchingParser
 
-from cube.schema_packages.cube import Cube
+from mammos.schema_packages.cube import Cube
 
 
 class CubeParser(MatchingParser):

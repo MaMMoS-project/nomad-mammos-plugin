@@ -14,7 +14,10 @@ from nomad.metainfo import (
 )
 from nomad.units import ureg
 
-from .mammos_ontology import MagnetocrystallineAnisotropyConstantK1, SpontaneousMagneticPolarisation
+from .mammos_ontology import (
+  MagnetocrystallineAnisotropyConstantK1,
+  SpontaneousMagneticPolarisation,
+)
 
 if TYPE_CHECKING:
   from nomad.datamodel.datamodel import (

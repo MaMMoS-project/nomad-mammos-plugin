@@ -3,7 +3,7 @@ import os
 from nomad.datamodel import EntryArchive
 from nomad.parsing import MatchingParser
 
-from cube.schema_packages.uu_schema import GroundState, UUData
+from mammos.schema_packages.uu_schema import GroundState, UUData
 
 
 class UUParser(MatchingParser):

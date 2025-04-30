@@ -4,7 +4,7 @@ from nomad.config.models.plugins import SchemaPackageEntryPoint
 class CubeEntryPoint(SchemaPackageEntryPoint):
 
     def load(self):
-        from cube.schema_packages.cube import m_package
+        from mammos.schema_packages.cube import m_package
 
         return m_package
 
@@ -17,7 +17,7 @@ cube = CubeEntryPoint(
 class TmrEntryPoint(SchemaPackageEntryPoint):
 
     def load(self):
-        from cube.schema_packages.tmrshape import m_package
+        from mammos.schema_packages.tmrshape import m_package
 
         return m_package
 
@@ -30,7 +30,7 @@ tmr = TmrEntryPoint(
 class OntoEntryPoint(SchemaPackageEntryPoint):
 
     def load(self):
-        from cube.schema_packages.mammos_ontology import m_package
+        from mammos.schema_packages.mammos_ontology import m_package
 
         return m_package
 
@@ -43,7 +43,7 @@ onto = OntoEntryPoint(
 class UUEntryPoint(SchemaPackageEntryPoint):
 
     def load(self):
-        from cube.schema_packages.uu_schema import m_package
+        from mammos.schema_packages.uu_schema import m_package
 
         return m_package
 

@@ -101,8 +101,11 @@ class MagnetocrystallineAnisotropyConstantK1(ArchiveSection):
 
 
 class SpontaneousMagneticPolarisation(ArchiveSection):
-  m_def = Section(a_eln=dict(properties=dict(order=['SpontaneousMagneticPolarisation'])))
-  SpontaneousMagneticPolarisation = Quantity(type=np.float64, a_eln={'component': 'NumberEditQuantity', 'defaultDisplayUnit': 'T'}, unit='kg/(A.s**2)')
+  m_def = Section(a_eln=dict(properties=dict(order=[
+                      'SpontaneousMagneticPolarisation'])))
+  SpontaneousMagneticPolarisation = Quantity(type=np.float64,
+    a_eln={'component': 'NumberEditQuantity', 'defaultDisplayUnit': 'T'},
+    unit='kg/(A.s**2)')
 
 class MaximumEnergyProduct(ArchiveSection):
   m_def = Section(a_eln=dict(properties=dict(order=['MaximumEnergyProduct'])))

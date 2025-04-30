@@ -109,7 +109,9 @@ class SpontaneousMagneticPolarisation(ArchiveSection):
 
 class MaximumEnergyProduct(ArchiveSection):
   m_def = Section(a_eln=dict(properties=dict(order=['MaximumEnergyProduct'])))
-  MaximumEnergyProduct = Quantity(type=np.float64, a_eln={'component': 'NumberEditQuantity', 'defaultDisplayUnit': 'kJ/m**3'}, unit='kg/(m.s**2)')
+  MaximumEnergyProduct = Quantity(type=np.float64, 
+        a_eln={'component': 'NumberEditQuantity', 'defaultDisplayUnit': 'kJ/m**3'},
+        unit='kg/(m.s**2)')
 
 
 class LatticeConstantA(ArchiveSection):

@@ -35,7 +35,7 @@ uuparser_entry_point = UUParserEntryPoint(
 
 class IFWParserEntryPoint(ParserEntryPoint):
   def load(self):
-    from cube.parsers.ifwparser import IFWParser
+    from mammos.parsers.ifwparser import IFWParser
 
     return IFWParser(**self.dict())
 

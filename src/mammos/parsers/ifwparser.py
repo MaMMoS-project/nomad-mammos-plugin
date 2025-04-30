@@ -3,7 +3,7 @@ import os
 from nomad.datamodel import EntryArchive
 from nomad.parsing import MatchingParser
 
-from cube.schema_packages.ifw_schema import IFWData
+from mammos.schema_packages.ifw_schema import IFWData
 
 
 class IFWParser(MatchingParser):

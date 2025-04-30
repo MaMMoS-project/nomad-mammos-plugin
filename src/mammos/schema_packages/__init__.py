@@ -57,7 +57,7 @@ uu = UUEntryPoint(
 class IFWEntryPoint(SchemaPackageEntryPoint):
 
     def load(self):
-        from cube.schema_packages.ifw_schema import m_package
+        from mammos.schema_packages.ifw_schema import m_package
 
         return m_package
 

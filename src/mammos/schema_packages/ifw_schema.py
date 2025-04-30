@@ -1,8 +1,7 @@
+import json
 from typing import (
   TYPE_CHECKING,
 )
-
-import json
 
 from nomad.datamodel.data import (
   ArchiveSection,
@@ -16,7 +15,9 @@ from nomad.metainfo import (
 )
 from nomad.units import ureg
 
-from .mammos_ontology import MagnetocrystallineAnisotropyConstantK1, SpontaneousMagneticPolarisation, MaximumEnergyProduct
+from .mammos_ontology import (
+  MaximumEnergyProduct,
+)
 
 if TYPE_CHECKING:
   from nomad.datamodel.datamodel import (
@@ -66,6 +67,6 @@ class IFWData(EntryData, ArchiveSection):
             # content = json.load(file)
             content = json.loads(file.read())
 
-        self.BHmax = MaximumEnergyProduct
+        self.BHmax = MaximumEnergyProduct()
         self.BHmax.MaximumEnergyProduct = \
             ureg.Quantity(float(content['BHmax in kJ/m^3'][0], 'kJ/m^3'))

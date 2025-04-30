@@ -64,9 +64,9 @@ class IFWData(EntryData, ArchiveSection):
         #print(f'archive.m_context.raw_file(self.M_of_H_file):  {archive.m_context.raw_file(self.M_of_H_file)}')
         with archive.m_context.raw_file(self.M_of_H_file) as file:
             print(f'file: {file}')  
-            print(f'file.read(): {file.read()}')  
-            # content = json.load(file)
-            content = json.loads(file.read())
+            #print(f'file.read(): {file.read()}')  
+            content = json.load(file)
+            # content = json.loads(file.read())
             
         self.BHmax = MaximumEnergyProduct()
         self.BHmax.MaximumEnergyProduct = \

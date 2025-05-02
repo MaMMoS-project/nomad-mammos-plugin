@@ -9,13 +9,13 @@ class NewParserEntryPoint(ParserEntryPoint):
         # from cube.parsers.cubeparser import CubeParser
         from cube.parsers.cubeparser import CubeParser
 
-        return CubeParser(**self.dict())
+        return CubeParser(**self.model_dump())
 
 
 parser_entry_point = NewParserEntryPoint(
     name='NewParser',
     description='New parser entry point configuration.',
-    mainfile_name_re='.*dat',
+    mainfile_name_re=r'.*dat',
 )
 
 
@@ -29,7 +29,7 @@ class UUParserEntryPoint(ParserEntryPoint):
 uuparser_entry_point = UUParserEntryPoint(
   name='UUParser',
   description='New parser entry point configuration.',
-  mainfile_name_re='.*cif',
+  mainfile_name_re=r'.*cif',
 )
 
 
